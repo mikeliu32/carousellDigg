@@ -4,7 +4,7 @@ import {AppContainer} from 'react-hot-loader'
 import App from './components/app'
 
 // import stylesheet for webpack
-import './sass/index.sass'
+import './sass/app.sass'
 
 const renderApp = (RootComponent) => {
     ReactDOM.render(
