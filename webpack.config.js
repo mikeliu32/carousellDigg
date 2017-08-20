@@ -15,6 +15,18 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
             },
+        }, {
+            test: /\.sass$/,
+            use: [{
+                loader: 'style-loader',
+            }, {
+                loader: 'css-loader',
+            }, {
+                loader: 'sass-loader',
+                options: {
+                    includePaths: ['node_modules/normalize-scss/sass'],
+                },
+            }],
         }],
     },
     plugins: [

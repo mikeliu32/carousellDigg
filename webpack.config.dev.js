@@ -31,6 +31,18 @@ module.exports = {
                     plugins: ['react-hot-loader/babel'],
                 },
             },
+        }, {
+            test: /\.sass$/,
+            use: [{
+                loader: 'style-loader',
+            }, {
+                loader: 'css-loader',
+            }, {
+                loader: 'sass-loader',
+                options: {
+                    includePaths: ['node_modules/normalize-scss/sass'],
+                },
+            }],
         }],
     },
     plugins: [
