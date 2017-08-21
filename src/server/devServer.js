@@ -6,7 +6,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackDevConfig from '../../webpack.config.dev'
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 const compiler = webpack(webpackDevConfig)
 
