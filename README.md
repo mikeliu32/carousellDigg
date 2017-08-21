@@ -35,7 +35,12 @@ $ npm run start
 
 Finally, the app will be running on `http://localhost:3000`.
 
+### Testing
+```bash
+$ npm run test
+```
 
+Will run Jest for testing.
 
 ### Linting
 
