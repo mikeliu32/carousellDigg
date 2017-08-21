@@ -4,6 +4,7 @@
 $black: #222222
 $carousell-red: #d2232a
 $white: #ffffff
+$gray: #666666
 
 body
     background-color: #e9ebee
@@ -16,7 +17,12 @@ body
 
 .title
     font-size: 24px
-    margin: 20px 0 26px
+    margin: 20px 0 4px
+
+.author
+    color: $gray
+    font-size: 14px
+    margin-bottom: 26px
 
 .topic-input
     background-color: $carousell-red
@@ -58,6 +64,15 @@ body
         &:hover
             background-color: rgba($white, 0.2)
 
+.digg-list
+    padding-bottom: 40px
+
+    .paging-info
+        color: $gray
+        font-size: 14px
+        text-align: center
+        margin: 20px 0
+
 .digg-item
     background-color: $white
     border: 1px solid
@@ -66,10 +81,16 @@ body
     padding: 12px 8px
     margin-bottom: 12px
 
+    .digg-id
+        color: $gray
+        font-size: 12px
+        margin-bottom: 4px
+
     .digg-topic
         font-size: 16px
         line-height: 1.4
         margin: 0 0 12px 0
+        white-space: pre
 
     .digg-buttons-wrap
         text-align: right
@@ -79,9 +100,11 @@ body
         border-radius: 3px
         cursor: pointer
         display: inline-block
-        padding: 4px 8px
+        padding: 4px 0
+        text-align: center
         margin: 0 8px
         user-select: none
+        width: 120px
 
         .button-label, .button-count
             display: inline-block
@@ -90,8 +113,8 @@ body
             margin-right: 4px
 
         &.upvote-button
-            border-color: red
-            color: red
+            border-color: $carousell-red
+            color: $carousell-red
         &.downvote-button
-            border-color: green
-            color: green
+            border-color: #008523
+            color: #008523
