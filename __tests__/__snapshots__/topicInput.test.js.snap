@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: TopicInput should render the TopicInput correctly 1`] = `
+<div
+  className="topic-input"
+>
+  <h3
+    className="input-label"
+  >
+    Write a new topic
+  </h3>
+  <textarea
+    className="input-textarea"
+    onChange={[Function]}
+    rows="4"
+    value=""
+  />
+  <div
+    className="input-wordcount"
+  >
+    0
+    /255
+  </div>
+  <div
+    className="submit-button"
+    onClick={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    Submit
+  </div>
+</div>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: DiggItem should render the DiggItem correctly 1`] = `
+<div
+  className="digg-item"
+>
+  <div
+    className="digg-id"
+  >
+    #
+    0
+  </div>
+  <p
+    className="digg-topic"
+  >
+    Test Digg Item Topic
+  </p>
+  <div
+    className="digg-buttons-wrap"
+  >
+    <div
+      className="digg-button upvote-button"
+      onClick={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="button-label"
+      >
+        Upvote
+      </span>
+      <span
+        className="button-count"
+      >
+        10
+      </span>
+    </div>
+    <div
+      className="digg-button downvote-button"
+      onClick={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="button-label"
+      >
+        Downvote
+      </span>
+      <span
+        className="button-count"
+      >
+        20
+      </span>
+    </div>
+  </div>
+</div>
+`;

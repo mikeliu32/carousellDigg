@@ -8,6 +8,11 @@ const mockState = {
         topic: 'test topic',
         upvote: 0,
         downvote: 0,
+    }, {
+        id: 1,
+        topic: 'test topic 1',
+        upvote: 0,
+        downvote: 0,
     }],
 }
 
@@ -49,6 +54,7 @@ describe('reducer', () => {
                 Object.assign({}, mockState.diggList[0], {
                     upvote: 1,
                 }),
+                mockState.diggList[1],
             ],
         })
 
@@ -65,6 +71,7 @@ describe('reducer', () => {
                 Object.assign({}, mockState.diggList[0], {
                     downvote: 1,
                 }),
+                mockState.diggList[1],
             ],
         })
 

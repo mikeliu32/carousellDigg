@@ -1,5 +1,7 @@
 # Digg / Reddit Challenge
 
+Depolyed to Heroku:  [https://calm-beyond-42384.herokuapp.com/](https://calm-beyond-42384.herokuapp.com/)
+
 ## Installation
 
 ```bash
@@ -48,4 +50,32 @@ Will run Jest for testing.
 $ npm run lint
 ```
 
-I use [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) with several custom rules in this project.
+Followed [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) with several custom rules in this project.
+
+
+## Implementation
+
+
+## Test Results
+
+Test Suites: 5 passed, 5 total
+
+Tests:       15 passed, 15 total
+
+Snapshots:   4 passed, 4 total
+
+Time:        2.51s
+
+Test converage:
+
+File              |  % Stmts | % Branch |  % Funcs |  % Lines
+------------------|----------|----------|----------|----------
+All files         |      100 |      100 |      100 |      100
+[actions]         |      100 |      100 |      100 |      100
+   diggActions.js |      100 |      100 |      100 |      100
+[components]      |      100 |      100 |      100 |      100
+   app.js         |      100 |      100 |      100 |      100
+   diggItem.js    |      100 |      100 |      100 |      100
+   topicInput.js  |      100 |      100 |      100 |      100
+[reducers]        |      100 |      100 |      100 |      100
+   diggReducer.js |      100 |      100 |      100 |      100

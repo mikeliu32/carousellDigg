@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers: App should render the App correctly 1`] = `
+<div
+  className="content-wrap"
+>
+  <h1
+    className="title"
+  >
+    Carousell Digg
+  </h1>
+  <div
+    className="author"
+  >
+    by Mike Liu
+  </div>
+  <div
+    className="topic-input"
+  >
+    <h3
+      className="input-label"
+    >
+      Write a new topic
+    </h3>
+    <textarea
+      className="input-textarea"
+      onChange={[Function]}
+      rows="4"
+      value=""
+    />
+    <div
+      className="input-wordcount"
+    >
+      0
+      /255
+    </div>
+    <div
+      className="submit-button"
+      onClick={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      Submit
+    </div>
+  </div>
+  <div
+    className="digg-list"
+  >
+    <div
+      className="paging-info"
+    >
+      total 
+      0
+       diggs, 
+      write some topic now!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`containers: App should render the App correctly 2`] = `
+<div
+  className="content-wrap"
+>
+  <h1
+    className="title"
+  >
+    Carousell Digg
+  </h1>
+  <div
+    className="author"
+  >
+    by Mike Liu
+  </div>
+  <div
+    className="topic-input"
+  >
+    <h3
+      className="input-label"
+    >
+      Write a new topic
+    </h3>
+    <textarea
+      className="input-textarea"
+      onChange={[Function]}
+      rows="4"
+      value=""
+    />
+    <div
+      className="input-wordcount"
+    >
+      0
+      /255
+    </div>
+    <div
+      className="submit-button"
+      onClick={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      Submit
+    </div>
+  </div>
+  <div
+    className="digg-list"
+  >
+    <div
+      className="paging-info"
+    >
+      total 
+      2
+       diggs, 
+      showing top 2
+    </div>
+    <div
+      className="digg-item"
+    >
+      <div
+        className="digg-id"
+      >
+        #
+        0
+      </div>
+      <p
+        className="digg-topic"
+      >
+        digg 1 topic
+      </p>
+      <div
+        className="digg-buttons-wrap"
+      >
+        <div
+          className="digg-button upvote-button"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <span
+            className="button-label"
+          >
+            Upvote
+          </span>
+          <span
+            className="button-count"
+          >
+            10
+          </span>
+        </div>
+        <div
+          className="digg-button downvote-button"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <span
+            className="button-label"
+          >
+            Downvote
+          </span>
+          <span
+            className="button-count"
+          >
+            20
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="digg-item"
+    >
+      <div
+        className="digg-id"
+      >
+        #
+        1
+      </div>
+      <p
+        className="digg-topic"
+      >
+        digg 2 topic
+      </p>
+      <div
+        className="digg-buttons-wrap"
+      >
+        <div
+          className="digg-button upvote-button"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <span
+            className="button-label"
+          >
+            Upvote
+          </span>
+          <span
+            className="button-count"
+          >
+            20
+          </span>
+        </div>
+        <div
+          className="digg-button downvote-button"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <span
+            className="button-label"
+          >
+            Downvote
+          </span>
+          <span
+            className="button-count"
+          >
+            10
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
