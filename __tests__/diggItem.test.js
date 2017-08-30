@@ -8,6 +8,7 @@ describe('component: DiggItem', () => {
         const tree = renderer.create(
             <DiggItem
                 id={0}
+                index={0}
                 topic='Test Digg Item Topic'
                 upvoteCount={10}
                 downvoteCount={20}
@@ -24,6 +25,7 @@ describe('component: DiggItem', () => {
         const elDiggItem = shallow(
             <DiggItem
                 id={0}
+                index={0}
                 topic='Test Digg Item Topic'
                 upvoteCount={10}
                 downvoteCount={20}
@@ -41,8 +43,10 @@ describe('component: DiggItem', () => {
 
         // callback arguments for two clicks
         expect(mockCallBack.mock.calls[0][0]).toBe(0)
-        expect(mockCallBack.mock.calls[0][1]).toBe('UP')
+        expect(mockCallBack.mock.calls[0][1]).toBe(0)
+        expect(mockCallBack.mock.calls[0][2]).toBe('UP')
         expect(mockCallBack.mock.calls[1][0]).toBe(0)
-        expect(mockCallBack.mock.calls[1][1]).toBe('DOWN')
+        expect(mockCallBack.mock.calls[1][1]).toBe(0)
+        expect(mockCallBack.mock.calls[1][2]).toBe('DOWN')
     })
 })

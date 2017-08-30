@@ -13,21 +13,25 @@ describe('actions', () => {
 
     it('should create an action to upvote a Digg', () => {
         const mockId = 1
+        const mockListIndex = 1
         const expectedAction = {
             type: diggAction.UPVOTE_DIGG,
             id: mockId,
+            listIndex: mockListIndex,
         }
 
-        expect(diggAction.upvoteDigg(mockId)).toEqual(expectedAction)
+        expect(diggAction.upvoteDigg(mockId, mockListIndex)).toEqual(expectedAction)
     })
 
     it('should create an action to downvote a Digg', () => {
         const mockId = 1
+        const mockListIndex = 1
         const expectedAction = {
             type: diggAction.DOWNVOTE_DIGG,
             id: mockId,
+            listIndex: mockListIndex,
         }
 
-        expect(diggAction.downvoteDigg(mockId)).toEqual(expectedAction)
+        expect(diggAction.downvoteDigg(mockId, mockListIndex)).toEqual(expectedAction)
     })
 })

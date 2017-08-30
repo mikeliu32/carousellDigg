@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 
 const DiggItem = ({
     id,
+    index,
     topic,
     upvoteCount,
     downvoteCount,
     onVoteDigg,
 }) => {
-    const onUpvoteClick = () => onVoteDigg(id, 'UP')
-    const onDownvoteClick = () => onVoteDigg(id, 'DOWN')
+    const onUpvoteClick = () => onVoteDigg(id, index, 'UP')
+    const onDownvoteClick = () => onVoteDigg(id, index, 'DOWN')
 
     return (
         <div className='digg-item'>
@@ -43,6 +44,7 @@ const DiggItem = ({
 
 DiggItem.propTypes = {
     id: PropTypes.number.isRequired,
+    index: PropTypes.number.isRequired,
     topic: PropTypes.string.isRequired,
     upvoteCount: PropTypes.number.isRequired,
     downvoteCount: PropTypes.number.isRequired,

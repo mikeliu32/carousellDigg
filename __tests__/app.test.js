@@ -90,9 +90,9 @@ describe('containers: App', () => {
         )
 
         // trigger upvote/downvote a topic
-        elApp.find('DiggItem').first().props().onVoteDigg(1, 'UP')
-        elApp.find('DiggItem').first().props().onVoteDigg(1, 'DOWN')
-        elApp.find('DiggItem').first().props().onVoteDigg(1, 'invalid vote type')
+        elApp.find('DiggItem').first().props().onVoteDigg(1, 1, 'UP')
+        elApp.find('DiggItem').first().props().onVoteDigg(1, 1, 'DOWN')
+        elApp.find('DiggItem').first().props().onVoteDigg(1, 1, 'invalid vote type')
 
         expect(mockUpvoteCallBack.mock.calls.length).toBe(1)
         expect(mockUpvoteCallBack.mock.calls[0][0]).toBe(1)

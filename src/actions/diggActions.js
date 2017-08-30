@@ -9,16 +9,18 @@ export function addDigg(topic) {
     }
 }
 
-export function upvoteDigg(id) {
+export function upvoteDigg(id, listIndex) {
     return {
         type: UPVOTE_DIGG,
         id,
+        listIndex,
     }
 }
 
-export function downvoteDigg(id) {
+export function downvoteDigg(id, listIndex) {
     return {
         type: DOWNVOTE_DIGG,
         id,
+        listIndex,
     }
 }

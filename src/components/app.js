@@ -18,7 +18,7 @@ class App extends React.Component {
         onAddDigg(topic)
     }
 
-    onVoteDigg(id, voteType) {
+    onVoteDigg(id, listIndex, voteType) {
         const {
             onUpvoteDigg,
             onDownvoteDigg,
@@ -27,11 +27,11 @@ class App extends React.Component {
         switch (voteType) {
         case 'UP':
             // dispatch action to upvote a Digg
-            onUpvoteDigg(id)
+            onUpvoteDigg(id, listIndex)
             break
         case 'DOWN':
             // dispatch action to downvote a Digg
-            onDownvoteDigg(id)
+            onDownvoteDigg(id, listIndex)
             break
         default:
         }
@@ -58,10 +58,11 @@ class App extends React.Component {
                         }
                     </div>
                     {
-                        diggList.map(digg => (
+                        diggList.map((digg, index) => (
                             <DiggItem
                                 key={digg.id}
                                 id={digg.id}
+                                index={index}
                                 topic={digg.topic}
                                 upvoteCount={digg.upvote}
                                 downvoteCount={digg.downvote}

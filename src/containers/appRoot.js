@@ -9,15 +9,16 @@ import {
 
 const mapStateToProps = state => ({
     // pass the digg list as props
-    // (sorted by upvote count descending, and has a maximum size of 20)
-    diggList: _(state.diggList).orderBy(['upvote'], ['desc']).take(20).value(),
+    // since the diggList is already sorted by upvote count descending,
+    // just return a maximum size of 20, and query the digg content from diggsById
+    diggList: _(state.diggList).take(20).map(diggId => state.diggsById[diggId]).value(),
     totalDiggCount: state.diggList.length,
 })
 
 const mapDispatchToProps = dispatch => ({
     onAddDigg: topic => dispatch(addDigg(topic)),
-    onUpvoteDigg: id => dispatch(upvoteDigg(id)),
-    onDownvoteDigg: id => dispatch(downvoteDigg(id)),
+    onUpvoteDigg: (id, listIndex) => dispatch(upvoteDigg(id, listIndex)),
+    onDownvoteDigg: (id, listIndex) => dispatch(downvoteDigg(id, listIndex)),
 })
 
 export default connect(

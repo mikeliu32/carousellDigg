@@ -7,51 +7,83 @@ import {
 // defined initial state of the store
 const initialState = {
     diggCount: 0,
-    diggList: [],
+    diggsById: {},
+    diggList: [], // keeps the digg ids by the descending order of upvote count
 }
 
 const diggReducer = (state = initialState, action) => {
     switch (action.type) {
-    case ADD_DIGG:
-        // append new Digg into diggList
+    case ADD_DIGG: {
+        const newDiggId = state.diggCount
+
         return Object.assign({}, state, {
             diggCount: state.diggCount + 1,
-            diggList: [
-                ...state.diggList,
-                {
-                    id: state.diggCount,
+            // add Digg to DiggsById, use id as the key
+            diggsById: Object.assign({}, state.diggsById, {
+                [newDiggId]: {
+                    id: newDiggId,
                     topic: action.topic,
                     upvote: 0,
                     downvote: 0,
                 },
+            }),
+            // append new Digg into the end of diggList
+            diggList: [
+                ...state.diggList,
+                newDiggId,
             ],
         })
-    case UPVOTE_DIGG:
+    }
+    case UPVOTE_DIGG: {
+        if (!Object.prototype.hasOwnProperty.call(state.diggsById, action.id)) {
+            return state
+        }
+
         // update the upvote count of the specific Digg by the given id
-        return Object.assign({}, state, {
-            diggList: state.diggList.map((digg) => {
-                if (digg.id === action.id) {
-                    return Object.assign({}, digg, {
-                        upvote: digg.upvote + 1,
-                    })
-                }
-
-                return digg
+        const targetDigg = state.diggsById[action.id]
+        const newDiggsById = Object.assign({}, state.diggsById, {
+            [action.id]: Object.assign({}, targetDigg, {
+                upvote: targetDigg.upvote + 1,
             }),
         })
-    case DOWNVOTE_DIGG:
+
+        const newList = state.diggList.slice()
+        let flag = action.listIndex
+
+        // To make diggList keep the descending order of the upvote count,
+        // swap the updated digg with the previous digg if it has a greater upvote count
+        while (
+            flag > 0
+            && newDiggsById[newList[flag]].upvote >= newDiggsById[newList[flag - 1]].upvote
+        ) {
+            const tempId = newList[flag - 1]
+            newList[flag - 1] = newList[flag]
+            newList[flag] = tempId
+
+            flag -= 1
+        }
+
+        return Object.assign({}, state, {
+            diggsById: newDiggsById,
+            diggList: newList,
+        })
+    }
+    case DOWNVOTE_DIGG: {
+        if (!Object.prototype.hasOwnProperty.call(state.diggsById, action.id)) {
+            return state
+        }
+
         // update the downvote count of the specific Digg by the given id
-        return Object.assign({}, state, {
-            diggList: state.diggList.map((digg) => {
-                if (digg.id === action.id) {
-                    return Object.assign({}, digg, {
-                        downvote: digg.downvote + 1,
-                    })
-                }
+        const targetDigg = state.diggsById[action.id]
 
-                return digg
+        return Object.assign({}, state, {
+            diggsById: Object.assign({}, state.diggsById, {
+                [action.id]: Object.assign({}, targetDigg, {
+                    downvote: targetDigg.downvote + 1,
+                }),
             }),
         })
+    }
     default:
         return state
     }
