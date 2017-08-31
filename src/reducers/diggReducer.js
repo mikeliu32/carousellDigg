@@ -4,6 +4,11 @@ import {
     DOWNVOTE_DIGG,
 } from '../actions/diggActions'
 
+const calculatWeighting = (upvote, downvote) => {
+    console.log(upvote, downvote)
+    return upvote - downvote
+}
+
 // defined initial state of the store
 const initialState = {
     diggCount: 0,
@@ -54,7 +59,8 @@ const diggReducer = (state = initialState, action) => {
         // swap the updated digg with the previous digg if it has a greater upvote count
         while (
             flag > 0
-            && newDiggsById[newList[flag]].upvote >= newDiggsById[newList[flag - 1]].upvote
+            && (calculatWeighting(newDiggsById[newList[flag]].upvote, newDiggsById[newList[flag]].downvote))
+            >= (calculatWeighting(newDiggsById[newList[flag - 1]].upvote, newDiggsById[newList[flag - 1]].downvote))
         ) {
             const tempId = newList[flag - 1]
             newList[flag - 1] = newList[flag]
@@ -75,13 +81,32 @@ const diggReducer = (state = initialState, action) => {
 
         // update the downvote count of the specific Digg by the given id
         const targetDigg = state.diggsById[action.id]
+        const newDiggsById = Object.assign({}, state.diggsById, {
+            [action.id]: Object.assign({}, targetDigg, {
+                downvote: targetDigg.downvote + 1,
+            }),
+        })
+
+        const newList = state.diggList.slice()
+        let flag = action.listIndex
+
+        // To make diggList keep the descending order of the upvote count,
+        // swap the updated digg with the previous digg if it has a greater upvote count
+        while (
+            flag < newList.length - 1
+            && (calculatWeighting(newDiggsById[newList[flag]].upvote, newDiggsById[newList[flag]].downvote))
+            <= (calculatWeighting(newDiggsById[newList[flag + 1]].upvote, newDiggsById[newList[flag + 1]].downvote))
+        ) {
+            const tempId = newList[flag + 1]
+            newList[flag + 1] = newList[flag]
+            newList[flag] = tempId
+
+            flag += 1
+        }
 
         return Object.assign({}, state, {
-            diggsById: Object.assign({}, state.diggsById, {
-                [action.id]: Object.assign({}, targetDigg, {
-                    downvote: targetDigg.downvote + 1,
-                }),
-            }),
+            diggsById: newDiggsById,
+            diggList: newList,
         })
     }
     default:
